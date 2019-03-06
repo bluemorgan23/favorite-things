@@ -30,9 +30,15 @@ const render = (item) => {
     itemList.innerHTML += item;
 }
 
-
-
 button.addEventListener("click", function () {
-    render(itemBuilder(inputItem.value, inputStore.value));
+    if (inputItem.value === "" || inputStore.value === ""){
+        alert("You have left an input field blank");
+    } else {
+        render(itemBuilder(inputItem.value, inputStore.value));
+        formContainer.reset();
+        inputItem.focus();
+    }
 })
+
+
 
